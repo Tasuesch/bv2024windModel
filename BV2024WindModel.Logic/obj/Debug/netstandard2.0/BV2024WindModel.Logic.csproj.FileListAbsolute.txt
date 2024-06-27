@@ -11,3 +11,17 @@ C:\src\BV2024WindModel\BV2024WindModel.Logic\bin\Debug\netstandard2.0\BV2024Wind
 C:\src\BV2024WindModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024Wi.CE6A647B.Up2Date
 C:\src\BV2024WindModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024WindModel.Logic.dll
 C:\src\BV2024WindModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024WindModel.Logic.pdb
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\bin\Debug\netstandard2.0\BV2024WindModel.Logic.deps.json
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\bin\Debug\netstandard2.0\BV2024WindModel.Logic.dll
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\bin\Debug\netstandard2.0\BV2024WindModel.Logic.pdb
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\bin\Debug\netstandard2.0\BV2024WindModel.Abstractions.dll
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\bin\Debug\netstandard2.0\BV2024WindModel.Abstractions.pdb
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024WindModel.Logic.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024WindModel.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024WindModel.Logic.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024WindModel.Logic.AssemblyInfo.cs
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024WindModel.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024WindModel.Logic.sourcelink.json
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024Wi.CE6A647B.Up2Date
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024WindModel.Logic.dll
+C:\Users\Lenovo\Source\Repos\taisiiaandrienko\bv2024windModel\BV2024WindModel.Logic\obj\Debug\netstandard2.0\BV2024WindModel.Logic.pdb

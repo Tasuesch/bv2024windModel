@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using BV2024WindModel.Abstractions;
+using Clipper2Lib;
 using Macs3.Core.Mathematics.GeneralPolygonClipperLibrary;
 
 
@@ -12,6 +15,8 @@ namespace BV2024WindModel.Logic
     {
         public IEnumerable<Surface> Calculate(in IEnumerable<Container> input)
         {
+            var stopWatch = new Stopwatch();
+            stopWatch.Start();
             var containers = input.ToList();
             var frontSurfaces = containers.GroupBy(container => container.FrontSurface.Coordinate, container => container.FrontSurface.Polygon,
                 (key, g) => new PolygonsAtCoordinate { Coordinate = key, Polygons = g.ToList() }).ToList();
@@ -20,14 +25,23 @@ namespace BV2024WindModel.Logic
 
             var building = new Building(212.65, 0, 29, 14.3, 50, 33);
 
-            var buildingFrontPolygons = new List<PolyDefault>();
-            buildingFrontPolygons.Add(building.FrontSurface.Polygon);
-            frontSurfaces.Add(new PolygonsAtCoordinate { Coordinate = building.FrontSurface.Coordinate, Polygons = buildingFrontPolygons });
+            //var buildingFrontPolygons = new List<PolyDefault>();
+            //buildingFrontPolygons.Add(building.FrontSurface.Polygon);
+           // frontSurfaces.Add(new PolygonsAtCoordinate { Coordinate = building.FrontSurface.Coordinate, Polygons = buildingFrontPolygons });
             aftProtectingSurfaces.Add(building.AftSurface);
-
+            stopWatch.Stop();
+            Console.WriteLine($"Data preparation time {stopWatch.ElapsedMilliseconds}ms");
+            stopWatch.Restart();
             double alpha = 25;
             var windExposedFrontSurfaces = GetWindExposedSurfaces(alpha, frontSurfaces, aftProtectingSurfaces);
+            stopWatch.Stop();
+            Console.WriteLine($"Calculation time {stopWatch.ElapsedMilliseconds}ms");
+            foreach (var windExposedFrontSurface in aftProtectingSurfaces)
+            {
+                Console.WriteLine($"X= {windExposedFrontSurface.Coordinate}");
+            }
             return windExposedFrontSurfaces;
+            
         }
 
         private static List<Surface> GetWindExposedSurfaces(double alpha, List<PolygonsAtCoordinate> frontSurfaces, List<Surface> aftProtectingSurfaces)
@@ -47,7 +61,18 @@ namespace BV2024WindModel.Logic
 
         private static Surface GetWindExposedSurface(double alpha, List<Surface> aftProtectingSurfaces, PolygonsAtCoordinate frontSurface)
         {
-            var windExposedFrontSurface = new Surface(frontSurface.Coordinate, frontSurface.Polygons);
+            
+            var frontSurfacePaths = new PathsD();
+            foreach (var polygon in  frontSurface.Polygons)
+            //for (var polygonIndex = 0; polygonIndex < frontSurface.Polygon.NumInnerPoly; polygonIndex++)
+            {
+                var path = new PathD();
+                foreach (var point in polygon.Points)
+                {
+                   path.Add(new PointD(point.X, point.Y ));
+                }
+                frontSurfacePaths.Add(path);
+            }
 
             foreach (var protectingSurface in aftProtectingSurfaces)
             {
@@ -57,26 +82,41 @@ namespace BV2024WindModel.Logic
 
                     if (needCalculate)
                     {
-                        var deflatedSurface = PolygonDeflator.DeflatePolygon(protectingSurface, frontSurface.Coordinate, alpha);
-                        if (deflatedSurface != null)
+                        var deflatedPaths = PolygonDeflator.DeflatePolygon(protectingSurface, frontSurface.Coordinate, alpha);
+                        if (deflatedPaths != null)
                         {
-                            for (var polygonIndex = 0; polygonIndex < deflatedSurface.Polygon.NumInnerPoly; polygonIndex++)
-                            {
-                                var innerProjectedPoly = deflatedSurface.Polygon.getInnerPoly(polygonIndex);
-                                windExposedFrontSurface.Polygon = windExposedFrontSurface.Polygon.diff(innerProjectedPoly) as PolyDefault;
-                                if (windExposedFrontSurface.Polygon.Empty)
-                                    break;
-                            }
-                            if (windExposedFrontSurface.Polygon.Empty)
+                            frontSurfacePaths = Clipper.Difference(frontSurfacePaths, deflatedPaths, FillRule.NonZero, 8);
+                            if (frontSurfacePaths.Count == 0)
                                 break;
+                           
                         }
                     }
                 }
                 
             }
+            var area = CalcArea(frontSurfacePaths);
+            Console.WriteLine($"X= {frontSurface.Coordinate}, Area= {area:f06}");
+
+            var frontSurfacePolygons = new List<PolyDefault>();
+            foreach (var frontSurfacePath in frontSurfacePaths)
+            {
+                var frontSurfacePolygon = new PolyDefault();
+                foreach (var point in frontSurfacePath)
+                {
+                    frontSurfacePolygon.add(point.x , point.y );
+                }
+                frontSurfacePolygons.Add(frontSurfacePolygon);
+            }
+            var windExposedFrontSurface = new Surface(frontSurface.Coordinate, frontSurfacePolygons);
             return windExposedFrontSurface;
         }
-
+        static double CalcArea(PathsD paths)
+        {
+            double totalArea = 0;
+            for (int i = 0; i < paths.Count; i++)
+                totalArea += Clipper.Area(paths[i]);
+            return totalArea;
+        }
         private static bool NeedToCalculate(double alpha, PolygonsAtCoordinate frontSurface, Surface protectingSurface)
         {
             var needCalculate = false;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nAxRJzcA314=",
+  "dgSpecHash": "8KuOE+zKQNg=",
   "success": true,
-  "projectFilePath": "C:\\src\\BV2024WindModel\\BV2024WindModel.Data\\BV2024WindModel.Data.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Source\\Repos\\taisiiaandrienko\\bv2024windModel\\BV2024WindModel.Data\\BV2024WindModel.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\clipper2\\1.3.0\\clipper2.1.3.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",

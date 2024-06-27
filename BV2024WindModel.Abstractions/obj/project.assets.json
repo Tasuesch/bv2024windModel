@@ -210,11 +210,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\src\\BV2024WindModel\\BV2024WindModel.Abstractions\\BV2024WindModel.Abstractions.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Source\\Repos\\taisiiaandrienko\\bv2024windModel\\BV2024WindModel.Abstractions\\BV2024WindModel.Abstractions.csproj",
       "projectName": "BV2024WindModel.Abstractions",
-      "projectPath": "C:\\src\\BV2024WindModel\\BV2024WindModel.Abstractions\\BV2024WindModel.Abstractions.csproj",
+      "projectPath": "C:\\Users\\Lenovo\\Source\\Repos\\taisiiaandrienko\\bv2024windModel\\BV2024WindModel.Abstractions\\BV2024WindModel.Abstractions.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\src\\BV2024WindModel\\BV2024WindModel.Abstractions\\obj\\",
+      "outputPath": "C:\\Users\\Lenovo\\Source\\Repos\\taisiiaandrienko\\bv2024windModel\\BV2024WindModel.Abstractions\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",

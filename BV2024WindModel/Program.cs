@@ -4,6 +4,8 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Xml.Linq;
 using BV2024WindModel.Data;
+using System.Threading;
+using System.Diagnostics;
 
 namespace BV2024WindModel
 {
@@ -13,7 +15,7 @@ namespace BV2024WindModel
 
         static void Main(string[] args)
         {
-
+           
             var containersFromFile = ReadCSV.ReadFromCsv("C:\\windLoadFiles\\wind9.csv");
 
             var calculator = new BV2024WindCalculator();
@@ -21,9 +23,9 @@ namespace BV2024WindModel
             var windExposedFrontSurfaces = calculator.Calculate(containersFromFile);
 
             var windCalculationResults = WindCalculationResultFactory.Create(windExposedFrontSurfaces);
-
+           
             string windResultsSerialized = JsonConvert.SerializeObject(windCalculationResults, Formatting.Indented);
-
+            
 
 
             //write string to file
@@ -32,7 +34,7 @@ namespace BV2024WindModel
             Console.WriteLine("Exposed ");
             foreach (var windExposedFrontSurface in windExposedFrontSurfaces)
             {
-                Console.WriteLine($"X= {windExposedFrontSurface.Coordinate}, Area= {windExposedFrontSurface.Area:f03}");
+                Console.WriteLine($"X= {windExposedFrontSurface.Coordinate}, Area= {windExposedFrontSurface.Area:f06}");
             }
 
             /*Parallel.ForEach(aftSurfaces, aftSurface =>

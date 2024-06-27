@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mKW/uL780cQ=",
+  "dgSpecHash": "RLKqN+4pgFw=",
   "success": true,
-  "projectFilePath": "C:\\src\\BV2024WindModel\\BV2024WindModel.Logic\\BV2024WindModel.Logic.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Source\\Repos\\taisiiaandrienko\\bv2024windModel\\BV2024WindModel.Logic\\BV2024WindModel.Logic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\clipper2\\1.3.0\\clipper2.1.3.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

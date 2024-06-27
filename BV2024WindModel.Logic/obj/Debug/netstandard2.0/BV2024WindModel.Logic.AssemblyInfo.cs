@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BV2024WindModel.Logic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60ae6a0607c39edca1a9df7c461d9e0185ea2d8c")]
 [assembly: System.Reflection.AssemblyProductAttribute("BV2024WindModel.Logic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BV2024WindModel.Logic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

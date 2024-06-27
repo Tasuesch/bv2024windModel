@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YDwa98QtnfA=",
+  "dgSpecHash": "xaP3aPHVrlo=",
   "success": true,
-  "projectFilePath": "C:\\src\\BV2024WindModel\\BV2024WindModel.Tests\\BV2024WindModel.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Source\\Repos\\taisiiaandrienko\\bv2024windModel\\BV2024WindModel.Tests\\BV2024WindModel.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\clipper2\\1.3.0\\clipper2.1.3.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
